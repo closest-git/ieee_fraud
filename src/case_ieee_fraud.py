@@ -136,6 +136,7 @@ lgb_params = {
                     'metric':'auc',
                     'n_jobs':-1,
                     'learning_rate':0.01,
+					"adaptive":'weight',
                     'num_leaves': 2**8,
                     'max_depth':-1,
                     'tree_learner':'serial',
@@ -189,7 +190,7 @@ if LOCAL_TEST:
     print(metrics.roc_auc_score(test_predictions[TARGET], test_predictions['prediction']))
 else:
     lgb_params['learning_rate'] = 0.005
-    lgb_params['n_estimators'] = 2800
+    lgb_params['n_estimators'] = 5000
     lgb_params['early_stopping_rounds'] = 100
     test_predictions,fold_score = make_predictions(train_df, test_df, features_columns, TARGET, lgb_params, NFOLDS=NFOLDS)
     test_predictions['isFraud'] = test_predictions['prediction']
