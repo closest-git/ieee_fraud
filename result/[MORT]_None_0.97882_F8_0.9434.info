@@ -1,0 +1,598 @@
+
+(base) L:\kaggle\ieee_fraud-master\src>python case_ieee_fraud.py mort
+====== Load pickle @../input//_kyakovlev_None.pickle ......
+train_df=(590540, 791) test_df=(506691, 791)
+lgb_params={'objective': 'binary', 'boosting_type': 'gbdt', 'metric': 'auc', 'n_jobs': -1, 'learning_rate': 0.005, 'learning_schedule': '', 'num_leaves': 256, 'max_depth': -1, 'tree_learner': 'serial', 'colsample_bytree': 0.7, 'subsample_freq': 1, 'subsample': 0.7, 'n_estimators': 5000, 'max_bin': 255, 'verbose': 1, 'seed': 42, 'early_stopping_rounds': 100}
+Fold: 0
+516722 73818
+********************************************************************
+*                          LiteMORT-alpha                          *
+*                   for personal, non-commercial use.              *
+*    Copyright (c) 2018-2019 by YingShiChen. All Rights Reserved.  *                                                    *                         gsp@grusoft.com                          *                                                    ********************************************************************
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000    "NA"=-1.000000  "normal"=0.000000
+"histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000       "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000   "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027A80794290(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516722, 772) y_train=(516722,)......
+X_t[(516722, 772)] astype object=><class 'numpy.float32'>
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516722 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.180768 NAN=0.338463 T=11.7........OK
+
+********* LiteMORT_fit nSamp=516722,nFeat=772 hEDA=0000027AFC724A90*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027CB0D56040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 18039, number of negative : 498683
+********* Fold_[train] nSamp=516722 nFeat=772(const=0) QUANT=772
+        sparse=0.180768 NAN=0.338463 nLocalConst=0 time=2.913 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.964,nana=0
+        Number of positive : 2624, number of negative : 71194
+********* Fold_[eval] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.180768 NAN=0.338463 nLocalConst=0 time=0.086 sec
+
+********* HistoGRAM_BUFFER MEM=1782.37(M) nMostBin=54414336
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516722,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0349105---->-3.31943                                                                    auc_0=0.48478  auc_5=0.88879  auc_10=0.89225  auc_15=0.93553  auc_20=0.93911  auc_25=0.94115  auc_30=0.9426   auc_35=0.94377  auc_40=0.94459  auc_45=0.94604  auc_50=0.94849  auc_55=0.95075  auc_60=0.95293  auc_65=0.95467  auc_70=0.95608  auc_75=0.95735  auc_80=0.95841  auc_85=0.95931  auc_90=0.96007  auc_95=0.96075  auc_100=0.96139  w(0.3872,2.314)  auc_200=0.96774  tX=1.43 w(0.3826,2.204)        w(0.3788,2.145) auc_400=0.97312  tX=2.46 w(0.3766,2.069)        w(0.3748,2.012)
+auc_600=0.97614  tX=3.49 w(0.3736,1.926)        w(0.3726,1.807) auc_800=0.97829  tX=4.5 w(0.3717,1.754) w(0.3709,1.675)
+ auc_1000=0.97949  tX=5.56 w(0.3703,1.618)
+-------- Oscillate@(1018,0.0204887) best=(1013,0.020477) --------
+w(0.3698,1.547) auc_1200=0.98002  tX=6.6 w(0.3693,1.494)        w(0.369,1.428)  auc_1400=0.9805   tX=7.66 w(0.3687,1.37)        w(0.3685,1.298) auc_1600=0.98078  tX=8.7 w(0.3684,1.236)    w(0.3683,1.164) auc_1800=0.98104  tX=9.74 w(0.3682,1.125)       w(0.3682,1.058) auc_2000=0.98126  tX=10.8 w(0.3681,1.003)       w(0.3681,0.9684)        auc_2200=0.98141  tX=11.8 w(0.3681,0.9598)  w(0.368,0.9514)
+====== LOOP=2369: ERR@train=1        ERR@eval=0.98144  time=479(0) ======
+
+********* early_stopping@[2270,2270]!!!
+********* GBRT::Train nTree=2271 aNode=834.442 ERR@train=1        err@eval=0.98144  thread=16
+********* train=478.649(hTree->Train=347.872,tCheckGain=280.268,tHisto=255.264(0,2598.3),tX=12.7095) sec
+
+********* LiteMORT_api fit  time=494(12.7)......OK
+
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.180768 NAN=0.338463 nLocalConst=0 time=0.063 sec
+
+********* LiteMORT_predict nSamp=73818,nFeat=772 hEDA=0000027AFC724A90*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.180768 NAN=0.338463 nLocalConst=0 time=0.439 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027AFC724A90*********
+
+Fold:0 score=0.9815365848947946 time=612 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 1
+516722 73818
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000        "NA"=-1.000000  "normal"=0.000000       "histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000   "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000       "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027AE9AE41E0(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516722, 772) y_train=(516722,)......
+X_t[(516722, 772)] astype object=><class 'numpy.float32'>
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516722 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.1808 NAN=0.33851 T=11.8........OK
+
+********* LiteMORT_fit nSamp=516722,nFeat=772 hEDA=0000027CF23586C0*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027E0CCA3040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 17982, number of negative : 498740
+********* Fold_[train] nSamp=516722 nFeat=772(const=0) QUANT=772
+        sparse=0.1808 NAN=0.33851 nLocalConst=0 time=2.854 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.964,nana=0
+        Number of positive : 2681, number of negative : 71137
+********* Fold_[eval] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.1808 NAN=0.33851 nLocalConst=0 time=0.086 sec
+
+********* HistoGRAM_BUFFER MEM=1782.25(M) nMostBin=54410752
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516722,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0348001---->-3.32271
+auc_0=0.46931  auc_5=0.8884   auc_10=0.89507  auc_15=0.93756  auc_20=0.94139  auc_25=0.94364  auc_30=0.94512  auc_35=0.94624  auc_40=0.94689  auc_45=0.94842  auc_50=0.95065  auc_55=0.95286  auc_60=0.95467  auc_65=0.9563   auc_70=0.95775  auc_75=0.95882  auc_80=0.95974  auc_85=0.9607   auc_90=0.96143  auc_95=0.96204  auc_100=0.96266  w(0.3863,2.301)      auc_200=0.96926  tX=14.1 w(0.3821,2.201)    w(0.3786,2.122) auc_400=0.9747   tX=15.1 w(0.3757,2.061)        w(0.3741,2.001) auc_600=0.97766  tX=16 w(0.373,1.938)   w(0.372,1.856)  auc_800=0.97982  tX=17 w(0.3712,1.756)
+-------- Oscillate@(866,0.0197546) best=(861,0.0197499) --------
+w(0.3705,1.698) auc_1000=0.98098  tX=17.9 w(0.37,1.624) w(0.3696,1.578) auc_1200=0.98178  tX=18.9 w(0.3692,1.54)        w(0.3689,1.485) auc_1400=0.98218  tX=19.8 w(0.3687,1.432)
+w(0.3685,1.363) auc_1600=0.9825   tX=20.8 w(0.3684,1.322)       w(0.3683,1.251) auc_1800=0.98267  tX=21.8 w(0.3682,1.172)       w(0.3682,1.111) auc_2000=0.98286  tX=22.7 w(0.3681,1.017)   w(0.3681,0.966)
+====== LOOP=2198: ERR@train=1        ERR@eval=0.98291  time=426(0) ======
+
+********* early_stopping@[2099,2099]!!!
+********* GBRT::Train nTree=2100 aNode=839.626 ERR@train=1        err@eval=0.98291  thread=16
+********* train=425.803(hTree->Train=301.634,tCheckGain=520.27,tHisto=472.688(0,4613.59),tX=23.6808) sec
+
+********* LiteMORT_api fit  time=441(23.7)......OK
+
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027A80794290...OK=0000027AFC724A90,hGBRT=0000027A80561750)...
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.1808 NAN=0.33851 nLocalConst=0 time=0.072 sec
+
+********* LiteMORT_predict nSamp=73818,nFeat=772 hEDA=0000027CF23586C0*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.1808 NAN=0.33851 nLocalConst=0 time=0.422 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027CF23586C0*********
+
+Fold:1 score=0.9830005193471291 time=542.2 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 2
+516722 73818
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000        "NA"=-1.000000  "normal"=0.000000       "histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000   "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000       "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027CF8FE70B0(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516722, 772) y_train=(516722,)......
+X_t[(516722, 772)] astype object=><class 'numpy.float32'>
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516722 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.180795 NAN=0.338523 T=11.5........OK
+
+********* LiteMORT_fit nSamp=516722,nFeat=772 hEDA=0000027CF23588F0*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027D3FF90040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 18148, number of negative : 498574
+********* Fold_[train] nSamp=516722 nFeat=772(const=0) QUANT=772
+        sparse=0.180795 NAN=0.338523 nLocalConst=0 time=2.95 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.966,nana=0
+        Number of positive : 2515, number of negative : 71303
+********* Fold_[eval] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.180795 NAN=0.338523 nLocalConst=0 time=0.091 sec
+
+********* HistoGRAM_BUFFER MEM=1783.53(M) nMostBin=54450688
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516722,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0351214---->-3.31319
+auc_0=0.4712   auc_5=0.88604  auc_10=0.8921   auc_15=0.93072  auc_20=0.93479  auc_25=0.93722  auc_30=0.93873  auc_35=0.94007  auc_40=0.94069  auc_45=0.94232  auc_50=0.94458  auc_55=0.94678  auc_60=0.94901  auc_65=0.95081  auc_70=0.9523   auc_75=0.95358  auc_80=0.9546   auc_85=0.95563  auc_90=0.95645  auc_95=0.95734  auc_100=0.95817  w(0.387,2.279)       auc_200=0.96586  tX=25.1 w(0.3816,2.184)    w(0.3787,2.162) auc_400=0.97171  tX=26.1 w(0.3758,2.07) w(0.3742,1.995) auc_600=0.97488  tX=27.1 w(0.3734,1.909)        w(0.3726,1.841) auc_800=0.9767   tX=28.1 w(0.3717,1.765)
+-------- Oscillate@(841,0.0230456) best=(836,0.0230381) --------
+w(0.371,1.679)  auc_1000=0.97767  tX=29.1 w(0.3704,1.617)       w(0.3698,1.571) auc_1200=0.97819  tX=30.1 w(0.3694,1.499)       w(0.369,1.431)  auc_1400=0.97854  tX=31.1 w(0.3688,1.378)   w(0.3686,1.319) auc_1600=0.97882  tX=32.1 w(0.3685,1.237)       w(0.3684,1.178) auc_1800=0.97897  tX=33 w(0.3683,1.108) w(0.3682,1.044) auc_2000=0.97923  tX=34 w(0.3682,1.03)      w(0.3681,1.01)  auc_2200=0.97937  tX=35.1 w(0.3681,1.011)       w(0.368,0.9894) auc_2400=0.97947  tX=36 w(0.368,0.9796) w(0.368,0.9604) auc_2600=0.97968  tX=37 w(0.368,0.9439)     w(0.368,0.9177) auc_2800=0.97981  tX=38 w(0.3679,0.8864)        w(0.3679,0.8703)
+====== LOOP=2965: ERR@train=1        ERR@eval=0.97985  time=655(0) ======
+
+********* early_stopping@[2866,2866]!!!
+********* GBRT::Train nTree=2867 aNode=822.58 ERR@train=1        err@eval=0.97985  thread=16
+********* train=654.589(hTree->Train=464.527,tCheckGain=891.831,tHisto=808.235(0,7088.13),tX=38.8689) sec
+
+********* LiteMORT_api fit  time=672(38.9)......OK
+
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027AE9AE41E0...OK=0000027CF23586C0,hGBRT=0000027A805619A0)...
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.180795 NAN=0.338523 nLocalConst=0 time=0.071 sec
+
+********* LiteMORT_predict nSamp=73818,nFeat=772 hEDA=0000027CF23588F0*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.180795 NAN=0.338523 nLocalConst=0 time=0.424 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027CF23588F0*********
+
+Fold:2 score=0.9799680299198595 time=818.7 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 3
+516722 73818
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000        "NA"=-1.000000  "normal"=0.000000       "histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000   "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000       "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027CD84A9E90(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516722, 772) y_train=(516722,)......
+X_t[(516722, 772)] astype object=><class 'numpy.float32'>
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516722 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.180777 NAN=0.3385 T=12.1........OK
+
+********* LiteMORT_fit nSamp=516722,nFeat=772 hEDA=0000027CFB1663B0*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027DABDC1040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 18047, number of negative : 498675
+********* Fold_[train] nSamp=516722 nFeat=772(const=0) QUANT=772
+        sparse=0.180777 NAN=0.3385 nLocalConst=0 time=2.951 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 2616, number of negative : 71202
+********* Fold_[eval] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.180777 NAN=0.3385 nLocalConst=0 time=0.09 sec
+
+********* HistoGRAM_BUFFER MEM=1782.87(M) nMostBin=54430208
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516722,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0349259---->-3.31898
+auc_0=0.47802  auc_5=0.88885  auc_10=0.89515  auc_15=0.93502  auc_20=0.93931  auc_25=0.94143  auc_30=0.94235  auc_35=0.94338  auc_40=0.94407  auc_45=0.94539  auc_50=0.94724  auc_55=0.94946  auc_60=0.95134  auc_65=0.95301  auc_70=0.9545   auc_75=0.95564  auc_80=0.95673  auc_85=0.95771  auc_90=0.95854  auc_95=0.95929  auc_100=0.96002  w(0.3861,2.275)      auc_200=0.96738  tX=40.3 w(0.3818,2.166)    w(0.3785,2.111) auc_400=0.97291  tX=41.3 w(0.3757,2.064)        w(0.374,2.012)  auc_600=0.97568  tX=42.4 w(0.3729,1.956)        w(0.372,1.894)      auc_800=0.97736  tX=43.3 w(0.3713,1.829)        w(0.3707,1.756)
+-------- Oscillate@(916,0.0219872) best=(911,0.0219762) --------
+auc_1000=0.97839  tX=44.4 w(0.3702,1.693)       w(0.3697,1.632) auc_1200=0.97921  tX=45.4 w(0.3693,1.552)       w(0.369,1.499)  auc_1400=0.97964  tX=46.4 w(0.3687,1.425)       w(0.3686,1.354)     auc_1600=0.97986  tX=47.4 w(0.3684,1.263)       w(0.3683,1.185) auc_1800=0.98013  tX=48.4 w(0.3682,1.112)       w(0.3682,1.045) auc_2000=0.98026  tX=49.4 w(0.3681,0.9873)  w(0.3681,0.9608)
+====== LOOP=2110: ERR@train=1        ERR@eval=0.98029  time=478(0) ======
+
+********* early_stopping@[2011,2011]!!!
+********* GBRT::Train nTree=2012 aNode=843.991 ERR@train=1        err@eval=0.98029  thread=16
+********* train=477.514(hTree->Train=342.138,tCheckGain=1167.99,tHisto=1058.08(0,8963.77),tX=49.9807) sec
+
+********* LiteMORT_api fit  time=493(50)......OK
+
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027CF8FE70B0...OK=0000027CF23588F0,hGBRT=0000027A80563EA0)...
+X_t[(73818, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73818 nFeat=772(const=0) QUANT=0
+        sparse=0.180777 NAN=0.3385 nLocalConst=0 time=0.072 sec
+
+********* LiteMORT_predict nSamp=73818,nFeat=772 hEDA=0000027CFB1663B0*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.180777 NAN=0.3385 nLocalConst=0 time=0.425 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027CFB1663B0*********
+
+Fold:3 score=0.9803902336007981 time=616.1 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 4
+516723 73817
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000        "NA"=-1.000000  "normal"=0.000000       "histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000   "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000       "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027CD84ABB00(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516723, 772) y_train=(516723,)......
+X_t[(516723, 772)] astype object=><class 'numpy.float32'>
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516723 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.180748 NAN=0.338562 T=12........OK
+
+********* LiteMORT_fit nSamp=516723,nFeat=772 hEDA=0000027CF23588F0*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027DB02D7040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 18126, number of negative : 498597
+********* Fold_[train] nSamp=516723 nFeat=772(const=0) QUANT=772
+        sparse=0.180748 NAN=0.338562 nLocalConst=0 time=2.916 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.966,nana=0
+        Number of positive : 2537, number of negative : 71280
+********* Fold_[eval] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180748 NAN=0.338562 nLocalConst=0 time=0.089 sec
+
+********* HistoGRAM_BUFFER MEM=1783.56(M) nMostBin=54451712
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516723,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0350788---->-3.31445
+auc_0=0.48894  auc_5=0.88461  auc_10=0.88989  auc_15=0.93421  auc_20=0.93776  auc_25=0.93925  auc_30=0.94073  auc_35=0.94184  auc_40=0.94261  auc_45=0.94399  auc_50=0.94618  auc_55=0.94843  auc_60=0.95028  auc_65=0.9518   auc_70=0.95315  auc_75=0.95439  auc_80=0.9554   auc_85=0.95632  auc_90=0.95707  auc_95=0.95775  auc_100=0.95845  w(0.3861,2.353)      auc_200=0.96549  tX=51.4 w(0.3814,2.266)    w(0.3779,2.175) auc_400=0.9712   tX=52.4 w(0.3754,2.085)        w(0.3738,1.977) auc_600=0.97448  tX=53.3 w(0.3728,1.891)        w(0.3718,1.83)      auc_800=0.97663  tX=54.3 w(0.371,1.755) w(0.3704,1.696)
+-------- Oscillate@(930,0.0224711) best=(925,0.0224562) --------
+auc_1000=0.97798  tX=55.3 w(0.3699,1.62)        w(0.3695,1.577) auc_1200=0.97878  tX=56.3 w(0.3692,1.501)       w(0.3689,1.438) auc_1400=0.97927  tX=57.3 w(0.3687,1.367)       w(0.3685,1.318)     auc_1600=0.97966  tX=58.3 w(0.3684,1.253)       w(0.3683,1.193) auc_1800=0.9799   tX=59.3 w(0.3683,1.149)       w(0.3682,1.092) auc_2000=0.98005  tX=60.3 w(0.3681,1.021)   w(0.3681,0.9844)        auc_2200=0.98029  tX=61.3 w(0.3681,0.9599)      w(0.368,0.942)
+====== LOOP=2318: ERR@train=1        ERR@eval=0.98031  time=518(0) ======
+
+********* early_stopping@[2219,2219]!!!
+********* GBRT::Train nTree=2220 aNode=835.505 ERR@train=1        err@eval=0.98031  thread=16
+********* train=517.789(hTree->Train=370.824,tCheckGain=1465.2,tHisto=1326.64(0,10964.8),tX=61.8922) sec
+
+********* LiteMORT_api fit  time=533(61.9)......OK
+
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027CD84A9E90...OK=0000027CFB1663B0,hGBRT=0000027A805665F0)...
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180748 NAN=0.338562 nLocalConst=0 time=0.093 sec
+
+********* LiteMORT_predict nSamp=73817,nFeat=772 hEDA=0000027CF23588F0*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.180748 NAN=0.338562 nLocalConst=0 time=0.445 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027CF23588F0*********
+
+Fold:4 score=0.9804137319854704 time=648.3 tr_x=(516723, 772) val_x=(73817, 772)
+Fold: 5
+516723 73817
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000        "NA"=-1.000000  "normal"=0.000000       "histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000   "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000       "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027AE772F480(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516723, 772) y_train=(516723,)......
+X_t[(516723, 772)] astype object=><class 'numpy.float32'>
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516723 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.180771 NAN=0.33848 T=11.7........OK
+
+********* LiteMORT_fit nSamp=516723,nFeat=772 hEDA=0000027CFB1666C0*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027DB2E0D040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 18094, number of negative : 498629
+********* Fold_[train] nSamp=516723 nFeat=772(const=0) QUANT=772
+        sparse=0.180771 NAN=0.33848 nLocalConst=0 time=2.862 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 2569, number of negative : 71248
+********* Fold_[eval] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180771 NAN=0.33848 nLocalConst=0 time=0.083 sec
+
+********* HistoGRAM_BUFFER MEM=1782.79(M) nMostBin=54427648
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516723,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0350168---->-3.31628
+auc_0=0.47506  auc_5=0.88837  auc_10=0.89572  auc_15=0.93465  auc_20=0.93851  auc_25=0.94046  auc_30=0.94149  auc_35=0.94213  auc_40=0.94298  auc_45=0.94427  auc_50=0.94618  auc_55=0.9483   auc_60=0.95015  auc_65=0.95183  auc_70=0.95337  auc_75=0.9546   auc_80=0.95555  auc_85=0.95636  auc_90=0.95715  auc_95=0.9578   auc_100=0.9585   w(0.3857,2.285)      auc_200=0.96509  tX=63.2 w(0.3806,2.154)    w(0.3773,2.112) auc_400=0.9707   tX=64.2 w(0.3751,2.04) w(0.374,1.954)  auc_600=0.97349  tX=65.2 w(0.3728,1.876)        w(0.3719,1.813) auc_800=0.97571  tX=66.2 w(0.371,1.742)
+-------- Oscillate@(845,0.0240357) best=(840,0.024025) --------
+w(0.3704,1.688) auc_1000=0.97688  tX=67.1 w(0.3699,1.628)       w(0.3695,1.553) auc_1200=0.97779  tX=68.2 w(0.3692,1.512)       w(0.3689,1.44)  auc_1400=0.97833  tX=69.1 w(0.3687,1.369)   w(0.3686,1.313) auc_1600=0.97874  tX=70.1 w(0.3685,1.25)        w(0.3684,1.182) auc_1800=0.97902  tX=71.1 w(0.3683,1.12)        w(0.3682,1.062) auc_2000=0.97925  tX=72.1 w(0.3682,1.012)   w(0.3681,0.9596)        auc_2200=0.97946  tX=73.1 w(0.3681,0.9618)      w(0.3681,0.9605)        auc_2400=0.9797   tX=74 w(0.368,0.9424) w(0.368,0.9192) auc_2600=0.97986  tX=75 w(0.368,0.895)      w(0.368,0.8713) auc_2800=0.97995  tX=76 w(0.368,0.856)
+====== LOOP=2847: ERR@train=1        ERR@eval=0.97998  time=509(0) ======
+
+********* early_stopping@[2748,2748]!!!
+********* GBRT::Train nTree=2749 aNode=824.522 ERR@train=1        err@eval=0.97998  thread=16
+********* train=509.349(hTree->Train=352.353,tCheckGain=1744.34,tHisto=1577.68(0,13305.9),tX=76.269) sec
+
+********* LiteMORT_api fit  time=525(76.3)......OK
+
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027CD84ABB00...OK=0000027CF23588F0,hGBRT=0000027A805604D0)...
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180771 NAN=0.33848 nLocalConst=0 time=0.082 sec
+
+********* LiteMORT_predict nSamp=73817,nFeat=772 hEDA=0000027CFB1666C0*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.180771 NAN=0.33848 nLocalConst=0 time=0.461 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027CFB1666C0*********
+
+Fold:5 score=0.9800854216134137 time=626.7 tr_x=(516723, 772) val_x=(73817, 772)
+Fold: 6
+516723 73817
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000        "NA"=-1.000000  "normal"=0.000000       "histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000   "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000       "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027CDA744E20(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516723, 772) y_train=(516723,)......
+X_t[(516723, 772)] astype object=><class 'numpy.float32'>
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516723 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.180794 NAN=0.338511 T=11.5........OK
+
+********* LiteMORT_fit nSamp=516723,nFeat=772 hEDA=0000027CF23588F0*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027DBA8A4040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 18148, number of negative : 498575
+********* Fold_[train] nSamp=516723 nFeat=772(const=0) QUANT=772
+        sparse=0.180794 NAN=0.338511 nLocalConst=0 time=2.855 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.966,nana=0
+        Number of positive : 2515, number of negative : 71302
+********* Fold_[eval] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180794 NAN=0.338511 nLocalConst=0 time=0.073 sec
+
+********* HistoGRAM_BUFFER MEM=1782.04(M) nMostBin=54404096
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516723,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0351213---->-3.31319
+auc_0=0.47118  auc_5=0.88759  auc_10=0.89217  auc_15=0.93366  auc_20=0.93743  auc_25=0.93933  auc_30=0.94128  auc_35=0.94213  auc_40=0.94286  auc_45=0.94434  auc_50=0.94619  auc_55=0.94832  auc_60=0.95021  auc_65=0.95184  auc_70=0.95328  auc_75=0.95446  auc_80=0.95539  auc_85=0.95635  auc_90=0.95713  auc_95=0.95792  auc_100=0.95859  w(0.3863,2.362)      auc_200=0.96528  tX=77.7 w(0.3825,2.269)    w(0.3791,2.178) auc_400=0.9702   tX=78.7 w(0.3766,2.065)        w(0.3746,1.954)
+-------- Oscillate@(572,0.0273815) best=(567,0.0273741) --------
+auc_600=0.97297  tX=79.7 w(0.3732,1.893)        w(0.3722,1.849) auc_800=0.97469  tX=80.8 w(0.3715,1.795)        w(0.3707,1.735) auc_1000=0.97572  tX=81.8 w(0.3701,1.691)       w(0.3695,1.646)     auc_1200=0.97639  tX=82.8 w(0.3692,1.578)       w(0.3689,1.513) auc_1400=0.97696  tX=83.9 w(0.3686,1.437)       w(0.3685,1.355) auc_1600=0.97743  tX=84.9 w(0.3683,1.298)   w(0.3683,1.231) auc_1800=0.97782  tX=85.9 w(0.3682,1.161)       w(0.3682,1.082) auc_2000=0.9781   tX=86.9 w(0.3681,1.007)       w(0.3681,0.9429)        auc_2200=0.97831  tX=88 w(0.3681,0.9231)    w(0.368,0.9057) auc_2400=0.97845  tX=89 w(0.368,0.8852) w(0.368,0.8774) auc_2600=0.97858  tX=90.1 w(0.368,0.8652)       w(0.3679,0.8517)        auc_2800=0.97865  tX=91.1 w(0.3679,0.8458)  w(0.3679,0.8318)
+====== LOOP=2954: ERR@train=1        ERR@eval=0.97867  time=534(0) ======
+
+********* early_stopping@[2855,2855]!!!
+********* GBRT::Train nTree=2856 aNode=823.347 ERR@train=1        err@eval=0.97867  thread=16
+********* train=533.812(hTree->Train=371.148,tCheckGain=2034.61,tHisto=1837.73(0,15710.6),tX=91.8803) sec
+
+********* LiteMORT_api fit  time=549(91.9)......OK
+
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027AE772F480...OK=0000027CFB1666C0,hGBRT=0000027A80567620)...
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180794 NAN=0.338511 nLocalConst=0 time=0.09 sec
+
+********* LiteMORT_predict nSamp=73817,nFeat=772 hEDA=0000027CF23588F0*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.180794 NAN=0.338511 nLocalConst=0 time=0.47 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027CF23588F0*********
+
+Fold:6 score=0.9787845700752709 time=652 tr_x=(516723, 772) val_x=(73817, 772)
+Fold: 7
+516723 73817
+======Load LiteMORT library @L:\kaggle\ieee_fraud-master\src\litemort\LiteMORT.dll
+"isOK"=0.000000 "env"=0.000000  "use_gpu"=1.000000      "version"=0.000000      "feature_quanti"=255.000000     "feature_sample"=0.700000       "min_child_samples"=20.000000   "subsample"=0.700000        "NA"=-1.000000  "normal"=0.000000       "histo_bin_map"=1.000000        "node_task"=0.000000    "objective"=0.000000    "metric"=0.000000       "k_fold"=5.000000   "learning_rate"=0.005000        "n_estimators"=5000.000000      "num_leaves"=256.000000 "early_stopping_rounds"=100.000000      "verbose"=1.000000      "max_depth"=-1.000000       "learning_schedule"=0.000000    ********* OnUserParams *********
+
+
+======LiteMORT_api init @0000027AE772F480(hEDA=0000000000000000,hGBRT=0000000000000000)...OK
+====== LiteMORT_fit X_train_0=(516723, 772) y_train=(516723,)......
+X_t[(516723, 772)] astype object=><class 'numpy.float32'>
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+
+********* g_hEDA on train_data *********
+********* EDA::Analysis nSamp=516723 nFeat=772........
+DCRIMI: 0(0) 0(1) 0(2) 0(3) 0(4) 0(5) 0(769) 0(770) 0(771)
+********* EDA::Analysis const=0 sparse=0.180774 NAN=0.338536 T=11.5........OK
+
+********* LiteMORT_fit nSamp=516723,nFeat=772 hEDA=0000027CFB165620*********
+
+********* FeatVec_LOSS::EDA@"train"     samp_weight=0000027DC191D040...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 18057, number of negative : 498666
+********* Fold_[train] nSamp=516723 nFeat=772(const=0) QUANT=772
+        sparse=0.180774 NAN=0.338536 nLocalConst=0 time=3.033 sec
+********* FeatVec_LOSS::EDA@"eval"      samp_weight=0000000000000000...
+  -1               [0-1]        BIG=2   nBin=3[0,0,0,0,0]       sparse=0.965,nana=0
+        Number of positive : 2606, number of negative : 71211
+********* Fold_[eval] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180774 NAN=0.338536 nLocalConst=0 time=0.067 sec
+
+********* HistoGRAM_BUFFER MEM=1783.66(M) nMostBin=54454784
+*********       nMostFeat=512,nMostNode=772 zero=0
+
+
+********* GBRT[REGRESSION]
+        nTrainSamp=516723,nTree=5000,maxDepth=-3 regress@LEAF=none thread=16 feat_quanti=255...
+        lr=0.005 sample=[0.7,0.7] min@leaf=20 stop=100 drop=1 num_leaves=256
+        OBJECTIVE="binary"      eval_metric="auc"       leaf_optimal="lambda_0"
+         init=mean
+        Imputation=OFF  Normal=OFF
+        nElitism=0.05,Iter_refine=0     Refine_split=0
+        nMostPrune=0 node_task=split_X
+        nMostSalp4Bins=0 histo_bin_::map="frequency"
+********* GBRT *********
+----Start training from score 0.0349452---->-3.3184
+auc_0=0.48344  auc_5=0.8776   auc_10=0.88419  auc_15=0.92773  auc_20=0.93113  auc_25=0.93205  auc_30=0.93411  auc_35=0.93518  auc_40=0.93548  auc_45=0.93688  auc_50=0.93924  auc_55=0.94169  auc_60=0.94412  auc_65=0.94611  auc_70=0.94796  auc_75=0.94939  auc_80=0.95065  auc_85=0.9518   auc_90=0.95269  auc_95=0.95367  auc_100=0.95458  w(0.3865,2.242)      auc_200=0.96297  tX=93.2 w(0.3817,2.194)    w(0.3783,2.135) auc_400=0.96929  tX=94.2 w(0.3759,2.04) w(0.3744,1.96)  auc_600=0.97236  tX=95.1 w(0.3731,1.879)        w(0.3721,1.82)  auc_800=0.97451  tX=96.1 w(0.3714,1.752)
+-------- Oscillate@(808,0.0254734) best=(803,0.0254669) --------
+w(0.3707,1.682) auc_1000=0.97572  tX=97.1 w(0.3701,1.615)       w(0.3695,1.552) auc_1200=0.97659  tX=98.1 w(0.3692,1.51)        w(0.3689,1.427) auc_1400=0.97714  tX=99 w(0.3687,1.364)     w(0.3686,1.305) auc_1600=0.9776   tX=100 w(0.3684,1.238)        w(0.3683,1.175) auc_1800=0.97795  tX=101 w(0.3683,1.112)        w(0.3682,1.019) auc_2000=0.9782   tX=102 w(0.3682,0.9657)   w(0.3681,0.95)  auc_2200=0.97846  tX=103 w(0.3681,0.9401)       w(0.3681,0.9331)        auc_2400=0.97855  tX=104 w(0.368,0.9192)        w(0.368,0.893)  auc_2600=0.97867  tX=105 w(0.368,0.8793)    w(0.368,0.8618)
+====== LOOP=2738: ERR@train=1        ERR@eval=0.97872  time=507(0) ======
+
+********* early_stopping@[2639,2639]!!!
+********* GBRT::Train nTree=2640 aNode=828.076 ERR@train=1        err@eval=0.97872  thread=16
+********* train=507.118(hTree->Train=354.556,tCheckGain=2314.77,tHisto=2088.9(0,18024.8),tX=105.454) sec
+
+********* LiteMORT_api fit  time=523(105)......OK
+
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027CDA744E20...OK=0000027CF23588F0,hGBRT=0000027A80567870)...
+X_t[(73817, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=73817 nFeat=772(const=0) QUANT=0
+        sparse=0.180774 NAN=0.338536 nLocalConst=0 time=0.116 sec
+
+********* LiteMORT_predict nSamp=73817,nFeat=772 hEDA=0000027CFB165620*********
+
+X_t[(506691, 772)] astype object=><class 'numpy.float32'>
+********* FeatVec_LOSS::EDA@"predict"   samp_weight=0000000000000000...
+********* Fold_[predict] nSamp=506691 nFeat=772(const=0) QUANT=0
+        sparse=0.180774 NAN=0.338536 nLocalConst=0 time=0.424 sec
+
+********* LiteMORT_predict nSamp=506691,nFeat=772 hEDA=0000027CFB165620*********
+
+Fold:7 score=0.9788234155404669 time=638.6 tr_x=(516723, 772) val_x=(73817, 772)
+LiteMORT::__del__...
+
+======LiteMORT_api clear @0000027AE772F480...OK=0000027CFB165620,hGBRT=0000027A805612B0)...
+test_predictions[['TransactionID', 'isFraud']] to_csv @../result/[MORT]_None_0.97882_F8_.csv
+Press Enter to exit...

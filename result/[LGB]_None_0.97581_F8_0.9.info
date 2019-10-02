@@ -1,0 +1,318 @@
+
+(base) L:\kaggle\ieee_fraud-master\src>python case_ieee_fraud.py
+====== Load pickle @../input//_kyakovlev_None.pickle ......
+train_df=(590540, 791) test_df=(506691, 791)
+lgb_params={'objective': 'binary', 'boosting_type': 'gbdt', 'metric': 'auc', 'n_jobs': -1, 'learning_rate': 0.005, 'adaptive': 'weight1', 'num_leaves': 256, 'max_depth': -1, 'tree_learner': 'serial', 'colsample_bytree': 0.7, 'subsample_freq': 1, 'subsample': 0.7, 'n_estimators': 5000, 'max_bin': 255, 'verbose': 1, 'seed': 42, 'early_stopping_rounds': 100}
+Fold: 0
+516722 73818
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 18039, number of negative: 498683
+[LightGBM] [Info] Total Bins 111700
+[LightGBM] [Info] Number of data: 516722, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.034910 -> initscore=-3.319435
+[LightGBM] [Info] Start training from score -3.319435
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.948961        valid_1's auc: 0.932954
+[400]   training's auc: 0.9746  valid_1's auc: 0.950291
+[600]   training's auc: 0.988207        valid_1's auc: 0.961241
+[800]   training's auc: 0.99439 valid_1's auc: 0.967498
+[1000]  training's auc: 0.997275        valid_1's auc: 0.970958
+[1200]  training's auc: 0.998712        valid_1's auc: 0.973164
+[1400]  training's auc: 0.999372        valid_1's auc: 0.974707
+[1600]  training's auc: 0.999682        valid_1's auc: 0.975803
+[1800]  training's auc: 0.999839        valid_1's auc: 0.976577
+[2000]  training's auc: 0.999921        valid_1's auc: 0.977255
+[2200]  training's auc: 0.999962        valid_1's auc: 0.97778
+[2400]  training's auc: 0.999983        valid_1's auc: 0.978211
+[2600]  training's auc: 0.999993        valid_1's auc: 0.978599
+[2800]  training's auc: 0.999997        valid_1's auc: 0.97896
+[3000]  training's auc: 0.999999        valid_1's auc: 0.979246
+[3200]  training's auc: 1       valid_1's auc: 0.979426
+[3400]  training's auc: 1       valid_1's auc: 0.979644
+[3600]  training's auc: 1       valid_1's auc: 0.979791
+[3800]  training's auc: 1       valid_1's auc: 0.979923
+[4000]  training's auc: 1       valid_1's auc: 0.980046
+[4200]  training's auc: 1       valid_1's auc: 0.980144
+[4400]  training's auc: 1       valid_1's auc: 0.980189
+[4600]  training's auc: 1       valid_1's auc: 0.980295
+[4800]  training's auc: 1       valid_1's auc: 0.980395
+[5000]  training's auc: 1       valid_1's auc: 0.980451
+Did not meet early stopping. Best iteration is:
+[4484]  training's auc: 1       valid_1's auc: 0.980268
+Fold:0 score=0.980267803123996 time=3184 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 1
+516722 73818
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 17982, number of negative: 498740
+[LightGBM] [Info] Total Bins 111934
+[LightGBM] [Info] Number of data: 516722, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.034800 -> initscore=-3.322714
+[LightGBM] [Info] Start training from score -3.322714
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.949373        valid_1's auc: 0.931026
+[400]   training's auc: 0.974403        valid_1's auc: 0.950984
+[600]   training's auc: 0.988069        valid_1's auc: 0.962277
+[800]   training's auc: 0.994357        valid_1's auc: 0.968452
+[1000]  training's auc: 0.997333        valid_1's auc: 0.971961
+[1200]  training's auc: 0.99871 valid_1's auc: 0.97418
+[1400]  training's auc: 0.999361        valid_1's auc: 0.975643
+[1600]  training's auc: 0.99967 valid_1's auc: 0.976742
+[1800]  training's auc: 0.999823        valid_1's auc: 0.977624
+[2000]  training's auc: 0.999903        valid_1's auc: 0.978296
+[2200]  training's auc: 0.999943        valid_1's auc: 0.978864
+[2400]  training's auc: 0.999965        valid_1's auc: 0.979336
+[2600]  training's auc: 0.999975        valid_1's auc: 0.979726
+[2800]  training's auc: 0.999979        valid_1's auc: 0.980068
+[3000]  training's auc: 0.999982        valid_1's auc: 0.980322
+[3200]  training's auc: 0.999983        valid_1's auc: 0.980572
+[3400]  training's auc: 0.999983        valid_1's auc: 0.980728
+[3600]  training's auc: 0.999984        valid_1's auc: 0.980909
+[3800]  training's auc: 0.999984        valid_1's auc: 0.98109
+[4000]  training's auc: 0.999996        valid_1's auc: 0.981183
+[4200]  training's auc: 1       valid_1's auc: 0.981273
+[4400]  training's auc: 1       valid_1's auc: 0.981338
+[4600]  training's auc: 1       valid_1's auc: 0.981448
+[4800]  training's auc: 1       valid_1's auc: 0.981491
+[5000]  training's auc: 1       valid_1's auc: 0.98155
+Did not meet early stopping. Best iteration is:
+[4350]  training's auc: 1       valid_1's auc: 0.981341
+Fold:1 score=0.9813408726064706 time=3212 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 2
+516722 73818
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 18148, number of negative: 498574
+[LightGBM] [Info] Total Bins 111818
+[LightGBM] [Info] Number of data: 516722, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.035121 -> initscore=-3.313192
+[LightGBM] [Info] Start training from score -3.313192
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.949536        valid_1's auc: 0.927306
+[400]   training's auc: 0.974712        valid_1's auc: 0.947772
+[600]   training's auc: 0.988092        valid_1's auc: 0.959419
+[800]   training's auc: 0.994357        valid_1's auc: 0.965858
+[1000]  training's auc: 0.997275        valid_1's auc: 0.969448
+[1200]  training's auc: 0.998695        valid_1's auc: 0.971857
+[1400]  training's auc: 0.999368        valid_1's auc: 0.973336
+[1600]  training's auc: 0.999684        valid_1's auc: 0.974463
+[1800]  training's auc: 0.99984 valid_1's auc: 0.975405
+[2000]  training's auc: 0.999922        valid_1's auc: 0.976135
+[2200]  training's auc: 0.999962        valid_1's auc: 0.976768
+[2400]  training's auc: 0.999983        valid_1's auc: 0.977331
+[2600]  training's auc: 0.999993        valid_1's auc: 0.977654
+[2800]  training's auc: 0.999997        valid_1's auc: 0.97807
+[3000]  training's auc: 0.999999        valid_1's auc: 0.978347
+[3200]  training's auc: 1       valid_1's auc: 0.978624
+[3400]  training's auc: 1       valid_1's auc: 0.978831
+[3600]  training's auc: 1       valid_1's auc: 0.979007
+[3800]  training's auc: 1       valid_1's auc: 0.979127
+[4000]  training's auc: 1       valid_1's auc: 0.979274
+[4200]  training's auc: 1       valid_1's auc: 0.979352
+[4400]  training's auc: 1       valid_1's auc: 0.979429
+Early stopping, best iteration is:
+[4392]  training's auc: 1       valid_1's auc: 0.979442
+Fold:2 score=0.9794417345136089 time=2869 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 3
+516722 73818
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 18047, number of negative: 498675
+[LightGBM] [Info] Total Bins 111869
+[LightGBM] [Info] Number of data: 516722, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.034926 -> initscore=-3.318975
+[LightGBM] [Info] Start training from score -3.318975
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.949477        valid_1's auc: 0.932738
+[400]   training's auc: 0.975144        valid_1's auc: 0.950244
+[600]   training's auc: 0.988375        valid_1's auc: 0.9612
+[800]   training's auc: 0.994393        valid_1's auc: 0.967033
+[1000]  training's auc: 0.99734 valid_1's auc: 0.970214
+[1200]  training's auc: 0.998721        valid_1's auc: 0.972169
+[1400]  training's auc: 0.999365        valid_1's auc: 0.973646
+[1600]  training's auc: 0.999679        valid_1's auc: 0.97466
+[1800]  training's auc: 0.999838        valid_1's auc: 0.975439
+[2000]  training's auc: 0.99992 valid_1's auc: 0.976087
+[2200]  training's auc: 0.999963        valid_1's auc: 0.976594
+[2400]  training's auc: 0.999984        valid_1's auc: 0.976929
+[2600]  training's auc: 0.999994        valid_1's auc: 0.977334
+[2800]  training's auc: 0.999998        valid_1's auc: 0.977601
+[3000]  training's auc: 0.999999        valid_1's auc: 0.977822
+[3200]  training's auc: 1       valid_1's auc: 0.978043
+[3400]  training's auc: 1       valid_1's auc: 0.9782
+[3600]  training's auc: 1       valid_1's auc: 0.978316
+[3800]  training's auc: 1       valid_1's auc: 0.97846
+[4000]  training's auc: 1       valid_1's auc: 0.978531
+[4200]  training's auc: 1       valid_1's auc: 0.978641
+[4400]  training's auc: 1       valid_1's auc: 0.978711
+Early stopping, best iteration is:
+[4402]  training's auc: 1       valid_1's auc: 0.978714
+Fold:3 score=0.9787137192139829 time=2866 tr_x=(516722, 772) val_x=(73818, 772)
+Fold: 4
+516723 73817
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 18126, number of negative: 498597
+[LightGBM] [Info] Total Bins 111726
+[LightGBM] [Info] Number of data: 516723, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.035079 -> initscore=-3.314451
+[LightGBM] [Info] Start training from score -3.314451
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.949464        valid_1's auc: 0.927769
+[400]   training's auc: 0.975013        valid_1's auc: 0.9473
+[600]   training's auc: 0.988297        valid_1's auc: 0.959407
+[800]   training's auc: 0.994374        valid_1's auc: 0.965927
+[1000]  training's auc: 0.997317        valid_1's auc: 0.969676
+[1200]  training's auc: 0.99869 valid_1's auc: 0.971962
+[1400]  training's auc: 0.999358        valid_1's auc: 0.973589
+[1600]  training's auc: 0.999679        valid_1's auc: 0.974652
+[1800]  training's auc: 0.999836        valid_1's auc: 0.97544
+[2000]  training's auc: 0.999918        valid_1's auc: 0.976108
+[2200]  training's auc: 0.999961        valid_1's auc: 0.976587
+[2400]  training's auc: 0.999982        valid_1's auc: 0.97709
+[2600]  training's auc: 0.999992        valid_1's auc: 0.97747
+[2800]  training's auc: 0.999997        valid_1's auc: 0.977866
+[3000]  training's auc: 0.999999        valid_1's auc: 0.978149
+[3200]  training's auc: 1       valid_1's auc: 0.978388
+[3400]  training's auc: 1       valid_1's auc: 0.978551
+[3600]  training's auc: 1       valid_1's auc: 0.978737
+[3800]  training's auc: 1       valid_1's auc: 0.978847
+[4000]  training's auc: 1       valid_1's auc: 0.978964
+[4200]  training's auc: 1       valid_1's auc: 0.979083
+Early stopping, best iteration is:
+[4197]  training's auc: 1       valid_1's auc: 0.979091
+Fold:4 score=0.97909060384425 time=2794 tr_x=(516723, 772) val_x=(73817, 772)
+Fold: 5
+516723 73817
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 18094, number of negative: 498629
+[LightGBM] [Info] Total Bins 111772
+[LightGBM] [Info] Number of data: 516723, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.035017 -> initscore=-3.316282
+[LightGBM] [Info] Start training from score -3.316282
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.949309        valid_1's auc: 0.929561
+[400]   training's auc: 0.97507 valid_1's auc: 0.947596
+[600]   training's auc: 0.988216        valid_1's auc: 0.958605
+[800]   training's auc: 0.994373        valid_1's auc: 0.964872
+[1000]  training's auc: 0.997274        valid_1's auc: 0.968809
+[1200]  training's auc: 0.998694        valid_1's auc: 0.971143
+[1400]  training's auc: 0.999372        valid_1's auc: 0.972637
+[1600]  training's auc: 0.999676        valid_1's auc: 0.973752
+[1800]  training's auc: 0.999827        valid_1's auc: 0.974653
+[2000]  training's auc: 0.999908        valid_1's auc: 0.975336
+[2200]  training's auc: 0.999949        valid_1's auc: 0.975873
+[2400]  training's auc: 0.99997 valid_1's auc: 0.976344
+[2600]  training's auc: 0.999979        valid_1's auc: 0.976695
+[2800]  training's auc: 0.999983        valid_1's auc: 0.977068
+[3000]  training's auc: 0.999985        valid_1's auc: 0.977357
+[3200]  training's auc: 0.999986        valid_1's auc: 0.97767
+[3400]  training's auc: 0.999987        valid_1's auc: 0.977883
+[3600]  training's auc: 0.999988        valid_1's auc: 0.977977
+[3800]  training's auc: 0.999997        valid_1's auc: 0.97819
+[4000]  training's auc: 1       valid_1's auc: 0.978345
+[4200]  training's auc: 1       valid_1's auc: 0.978468
+[4400]  training's auc: 1       valid_1's auc: 0.978521
+[4600]  training's auc: 1       valid_1's auc: 0.978661
+[4800]  training's auc: 1       valid_1's auc: 0.978741
+Early stopping, best iteration is:
+[4772]  training's auc: 1       valid_1's auc: 0.978754
+Fold:5 score=0.9787537390435828 time=3179 tr_x=(516723, 772) val_x=(73817, 772)
+Fold: 6
+516723 73817
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 18148, number of negative: 498575
+[LightGBM] [Info] Total Bins 111931
+[LightGBM] [Info] Number of data: 516723, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.035121 -> initscore=-3.313194
+[LightGBM] [Info] Start training from score -3.313194
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.94933 valid_1's auc: 0.930083
+[400]   training's auc: 0.974986        valid_1's auc: 0.947038
+[600]   training's auc: 0.98807 valid_1's auc: 0.957929
+[800]   training's auc: 0.994415        valid_1's auc: 0.964622
+[1000]  training's auc: 0.997336        valid_1's auc: 0.96829
+[1200]  training's auc: 0.998709        valid_1's auc: 0.970547
+[1400]  training's auc: 0.999363        valid_1's auc: 0.972113
+[1600]  training's auc: 0.99968 valid_1's auc: 0.973207
+[1800]  training's auc: 0.99984 valid_1's auc: 0.974039
+[2000]  training's auc: 0.99992 valid_1's auc: 0.974838
+[2200]  training's auc: 0.999962        valid_1's auc: 0.975333
+[2400]  training's auc: 0.999983        valid_1's auc: 0.975747
+[2600]  training's auc: 0.999992        valid_1's auc: 0.976096
+[2800]  training's auc: 0.999996        valid_1's auc: 0.976417
+[3000]  training's auc: 0.999998        valid_1's auc: 0.976719
+[3200]  training's auc: 0.999999        valid_1's auc: 0.976923
+[3400]  training's auc: 0.999999        valid_1's auc: 0.977101
+[3600]  training's auc: 0.999999        valid_1's auc: 0.97732
+[3800]  training's auc: 0.999999        valid_1's auc: 0.977438
+Early stopping, best iteration is:
+[3898]  training's auc: 0.999999        valid_1's auc: 0.977554
+Fold:6 score=0.9775542699038441 time=2564 tr_x=(516723, 772) val_x=(73817, 772)
+Fold: 7
+516723 73817
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the "boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 18057, number of negative: 498666
+[LightGBM] [Info] Total Bins 112085
+[LightGBM] [Info] Number of data: 516723, number of used features: 771
+[LightGBM] [Warning] Unknown parameter: adaptive
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.034945 -> initscore=-3.318403
+[LightGBM] [Info] Start training from score -3.318403
+Training until validation scores don't improve for 100 rounds
+[200]   training's auc: 0.94963 valid_1's auc: 0.924461
+[400]   training's auc: 0.974703        valid_1's auc: 0.942868
+[600]   training's auc: 0.988031        valid_1's auc: 0.955701
+[800]   training's auc: 0.994269        valid_1's auc: 0.962702
+[1000]  training's auc: 0.997283        valid_1's auc: 0.966772
+[1200]  training's auc: 0.998696        valid_1's auc: 0.969311
+[1400]  training's auc: 0.999371        valid_1's auc: 0.970949
+[1600]  training's auc: 0.999688        valid_1's auc: 0.971981
+[1800]  training's auc: 0.999842        valid_1's auc: 0.972864
+[2000]  training's auc: 0.999922        valid_1's auc: 0.973562
+[2200]  training's auc: 0.999963        valid_1's auc: 0.974047
+[2400]  training's auc: 0.999984        valid_1's auc: 0.974486
+[2600]  training's auc: 0.999993        valid_1's auc: 0.974827
+[2800]  training's auc: 0.999997        valid_1's auc: 0.975125
+[3000]  training's auc: 0.999999        valid_1's auc: 0.975387
+[3200]  training's auc: 1       valid_1's auc: 0.975628
+[3400]  training's auc: 1       valid_1's auc: 0.975789
+Early stopping, best iteration is:
+[3353]  training's auc: 1       valid_1's auc: 0.975806
+Fold:7 score=0.9758063098571232 time=2253 tr_x=(516723, 772) val_x=(73817, 772)
+test_predictions[['TransactionID', 'isFraud']] to_csv @../result/[LGB]_None_0.97581_F8_.csv
+Press Enter to exit...
